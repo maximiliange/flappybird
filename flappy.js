@@ -37,9 +37,9 @@ var game_playing = false;
 var score = 0;
 // the frequency of score updates per second
 var score_update_freq = 0.1;
-// times it takes to approach first pipe
-var time_offset = (pipe_offset - player_margin)/game_speed;
-// keep track of game play time
+// time it takes to pass through the first pipe
+var time_offset = (pipe_size + pipe_offset - player_margin)/game_speed;
+// keep track of game play time for scoring
 var pipe_timer = -time_offset;
 
 
@@ -309,6 +309,11 @@ function generate_pipes() {
     for(i = hole + 2; i < number_of_pipes; i++){
         add_pipe_part(pipe_offset, i * pipe_size + (2*pipe_end_size), 'pipe-body');
     }
+
+    // workshop hack
+    //score++;
+    //label_score.setText(score);
+    //label_endscore.setText("Your score: "+score);
 }
 
 /*
@@ -328,6 +333,10 @@ function player_fallen() {
  * the bounds of the scene.
  */
 function game_over() {
+    // workshop hack
+    //location.reload();
+    //return;
+
     // check that the game hasn't been stopped already
     if(!game_playing)
         return;
@@ -359,4 +368,5 @@ function game_over() {
     } else {
         label_reset.visible = true;
     }
+
 }
