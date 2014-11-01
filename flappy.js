@@ -85,7 +85,7 @@ function create() {
     // there are three physics engine. this is the basic one
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    // set the background colour of the scene (Cambridge blue)
+    // set the background colour of the scene (Cambridge blue #98baac)
     game.stage.backgroundColor = '#98baac';
     game.add.image(0, 0, 'background');
 
